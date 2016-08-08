@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "SDL.h"
+#define LOG(x) std::cout << x << std::endl
 namespace Turki {
 	class Window
 	{
@@ -17,8 +18,8 @@ namespace Turki {
 		bool init();
 		bool running() { return m_Running; }
 		void update() {}
-		void render();
 		void EventHandle();
+		SDL_Renderer* getRenderer() { return m_Renderer; }
 	private:
 		SDL_Window* m_Window;
 		SDL_Renderer* m_Renderer;

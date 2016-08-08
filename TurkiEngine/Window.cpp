@@ -35,28 +35,23 @@ namespace Turki {
 
 			if (m_Window != 0)
 			{
-				std::cout << "Pencere oluþturuldu" << std::endl;
+				LOG("Pencere oluþturuldu");
 				m_Renderer = SDL_CreateRenderer(m_Window, -1, 0);
+
 			}
 			else
 			{
-				std::cout << "Pencere oluþturulamadý" << std::endl;
+				LOG("Pencere oluþturulamadý");
 				return false;
 			}
 		}
 		else
 		{
-			std::cout << "Init baþarýsýz!!!" << std::endl;
+			LOG("Init baþarýsýz!!!");
 			return false;
 		}
 
 		return true;
 	}
-	void Window::render()
-	{
-		SDL_SetRenderDrawColor(m_Renderer, 183, 183, 183, 255);
-		SDL_RenderClear(m_Renderer);
-		SDL_RenderPresent(m_Renderer);
 
-	}
 }
