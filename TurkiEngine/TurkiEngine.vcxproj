@@ -125,18 +125,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GameObjects\BackGround.h" />
+    <ClInclude Include="GameObjects\Ball.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="GameObjects\GameObject.h" />
+    <ClInclude Include="ImageManager\ImageManager.h" />
+    <ClInclude Include="GameObjects\Player.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjects\BackGround.cpp" />
+    <ClCompile Include="GameObjects\Ball.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="GameObjects\GameObject.cpp" />
+    <ClCompile Include="ImageManager\ImageManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="GameObjects\Player.cpp" />
+    <ClCompile Include="Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TurkiEngine1.rc" />

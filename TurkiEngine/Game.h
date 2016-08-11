@@ -1,7 +1,9 @@
 #pragma once
 #include <SDL.h>
-#include "GameObject.h"
-#include "ImageManager.h"
+#include "GameObjects/Player.h"
+#include "GameObjects/Ball.h"
+#include "GameObjects/BackGround.h"
+#include "ImageManager/ImageManager.h"
 namespace Turki {
 	class  Game
 	{
@@ -15,8 +17,8 @@ namespace Turki {
 	private:
 		SDL_Renderer* gameRenderer;
 		ImageManager* imageMan;
-		GameObject backGround;
-		GameObject ball;
+		BackGround backGround;
+		Ball ball;
 
 	};
 

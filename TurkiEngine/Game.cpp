@@ -1,6 +1,8 @@
 #include "Game.h"
-#include "GameObject.h"
-#include "ImageManager.h"
+#include "GameObjects/Player.h"
+#include "GameObjects/Ball.h"
+#include "GameObjects/BackGround.h"
+#include "ImageManager/ImageManager.h"
 namespace Turki {
 	Game::Game()
 	{
@@ -21,12 +23,35 @@ namespace Turki {
 	}
 	void Game::renderer()
 	{
-		SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
-		SDL_RenderClear(gameRenderer);
-		backGround.draw(0, 0, 800, 600);
-		ball.draw(400, 300, 10, 10);
-		SDL_RenderPresent(gameRenderer);
+		int dX = 5;
+		int dY = 5;
+		for (int i = 0;; i++)
+		{
 
+
+			SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
+			SDL_RenderClear(gameRenderer);
+			backGround.draw(0, 0, 800, 600);
+
+			if (ball.ObjectX < 0 || ball.ObjectX > 800) {
+				dX = -dX;
+			}
+			if (ball.ObjectY < 0 || ball.ObjectY > 600) {
+				dY = -dY;
+			}
+
+
+
+
+
+			ball.ObjectX += dX;
+			ball.ObjectY += dY;
+
+			ball.draw(ball.ObjectX, ball.ObjectY, 10, 10);
+			SDL_RenderPresent(gameRenderer);
+
+			SDL_Delay(7);
+		}
 	}
 	void Game::update()
 	{
