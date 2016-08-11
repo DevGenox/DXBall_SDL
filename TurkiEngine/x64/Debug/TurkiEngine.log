@@ -1,3 +1,8 @@
-﻿  main.cpp
+﻿  GameObject.cpp
+  Game.cpp
+  Generating Code...
+  Compiling...
+  main.cpp
+  Generating Code...
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.exe
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.pdb (Partial PDB)

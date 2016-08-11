@@ -1,7 +1,8 @@
 #include "Window.h"
-#include "Image.h"
+#include "ImageManager.h"
+#include "Game.h"
 #include <SDL.h>
-#include <SDL_image.h>
+#include <SDL_Image.h>
 #define LOG(x) std::cout << x << std::endl
 
 int topla(int x, int y)
@@ -23,14 +24,14 @@ int main(int argc, char* args[])
 	setlocale(LC_ALL, "Turkish");
 
 	Window window("Turki ENGINE", 800, 600, false);
-	Image newImage(window.getRenderer(), "Assets/backGround.png", 0, 0, 800, 600);
-	
-	
+	SDL_Renderer* windowRenderer = window.getRenderer();
+	Game game;
+	game.load(windowRenderer);
 	while (window.running())
 	{
-		newImage.renderer(window.getRenderer());
+		game.update();
 	}
-
+	
 	system("pause");
 	return 0;
 }
