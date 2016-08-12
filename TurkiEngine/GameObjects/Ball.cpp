@@ -5,8 +5,12 @@
 namespace Turki {
 	Ball::Ball()
 	{
-		ObjectX = 0;
-		ObjectY = 0;
+		ObjectX = 400;
+		ObjectY = 500;
+		ObjectWidth = 10;
+		ObjectHeight = 10;
+		ObjectID = "Ball";
+		AssetPath = "Assets/Ball.png";
 	}
 
 

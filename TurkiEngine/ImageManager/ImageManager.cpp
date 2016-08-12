@@ -48,17 +48,19 @@ namespace Turki {
 		m_SourceRec.h = m_destinationRec.h = 0;
 
 		m_Texture = m_TextureMap[id];
-	
-		SDL_QueryTexture(m_Texture, NULL, NULL, &m_SourceRec.w, &m_SourceRec.h);
+		if (m_Texture != 0)
+		{
+			SDL_QueryTexture(m_Texture, NULL, NULL, &m_SourceRec.w, &m_SourceRec.h);
 
-		m_SourceRec.x = 0;
-		m_SourceRec.y = 0;
-		m_SourceRec.w = m_destinationRec.w = img_Width;
-		m_SourceRec.h = m_destinationRec.h = img_Height;
-		m_destinationRec.x = PosX;
-		m_destinationRec.y = PosY;
+			m_SourceRec.x = 0;
+			m_SourceRec.y = 0;
+			m_SourceRec.w = m_destinationRec.w = img_Width;
+			m_SourceRec.h = m_destinationRec.h = img_Height;
+			m_destinationRec.x = PosX;
+			m_destinationRec.y = PosY;
 
-		SDL_RenderCopy(m_Render, m_Texture, &m_SourceRec, &m_destinationRec);
+			SDL_RenderCopy(m_Render, m_Texture, &m_SourceRec, &m_destinationRec);
+		}
 	}
 
 	

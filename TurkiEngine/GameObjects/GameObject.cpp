@@ -11,14 +11,12 @@ namespace Turki {
 	GameObject::~GameObject()
 	{
 	}
-	void GameObject::load(SDL_Renderer * render, ImageManager imgManager, const char* id, const char* path)
+	void GameObject::load(SDL_Renderer* render, ImageManager &imgManager)
 	{
 		gameRenderer = render;
-		ObjectID = id;
-		AssetPath = path;
 
-		Obj_imgMan = imgManager;
-		Obj_imgMan.load(id, path);
+		Obj_imgMan = &imgManager;
+		Obj_imgMan->load(ObjectID, AssetPath);
 	}
 	void GameObject::draw(int PosX, int PosY, int img_Width, int img_Height)
 	{
@@ -26,6 +24,9 @@ namespace Turki {
 		ObjectY = PosY;
 		ObjectWidth = img_Width;
 		ObjectHeight = img_Height;
-		Obj_imgMan.draw(ObjectID, ObjectX, ObjectY, ObjectWidth, ObjectHeight);
+		if (Obj_imgMan != NULL)
+		{
+			Obj_imgMan->draw(ObjectID, ObjectX, ObjectY, ObjectWidth, ObjectHeight);
+		}
 	}
 }

@@ -5,9 +5,9 @@
 #include <SDL_Image.h>
 #define LOG(x) std::cout << x << std::endl
 
-
 int main(int argc, char* args[])
 {
+
 	using namespace Turki;
 	setlocale(LC_ALL, "Turkish");
 

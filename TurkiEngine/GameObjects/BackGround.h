@@ -6,5 +6,6 @@ namespace Turki {
 	public:
 		BackGround();
 		~BackGround();
+
 	};
 }

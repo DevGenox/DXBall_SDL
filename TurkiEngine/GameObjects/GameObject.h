@@ -11,12 +11,13 @@ namespace Turki {
 		int ObjectY;
 		int ObjectWidth;
 		int ObjectHeight;
-		void load(SDL_Renderer * render, ImageManager imgManager, const char* id, const char* path);
-		void draw(int PosX, int PosY, int img_Width, int img_Height);
-	private:
 		const char* ObjectID;
 		const char* AssetPath;
-		ImageManager Obj_imgMan;
+		ImageManager* Obj_imgMan;
+		void load(SDL_Renderer * render, ImageManager &imgManager);
+		void draw(int PosX, int PosY, int img_Width, int img_Height);
+	private:
+
 		SDL_Renderer* gameRenderer;
 	};
 
