@@ -7,6 +7,8 @@ namespace Turki {
 	{
 		ObjectID = "Brick";
 		AssetPath = "Assets/Brick.png";
+		ObjectWidth = 40;
+		ObjectHeight = 20;
 	}
 
 

@@ -24,7 +24,7 @@ namespace Turki {
 		imageMan.setRenderer(gameRenderer);
 		backGround.load(gameRenderer, imageMan);
 		ball->load(gameRenderer, imageMan);
-
+		player->load(gameRenderer, imageMan);
 		for (int i = 0; i < brickSize; i++)
 		{
 			brick[i]->load(gameRenderer, imageMan);
@@ -34,12 +34,13 @@ namespace Turki {
 	}
 	void Game::renderer()
 	{
+		
 		int dX = 5;
 		int dY = 5;
 		for (int i = 0;; i++)
 		{
 
-
+			
 			SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
 			SDL_RenderClear(gameRenderer);
 			backGround.draw(0, 0, 800, 600);
@@ -79,33 +80,45 @@ namespace Turki {
 					id++;
 					if (brick[id] != NULL)
 					{
-						brick[id]->draw(x, y, 40, 20);
+						brick[id]->draw(x, y, brick[id]->ObjectWidth, brick[id]->ObjectHeight);
 					}
 				}
 			}
-			
+			int x, y;
+			SDL_GetMouseState(&x, &y);
+			player->draw(x, player->ObjectY, player->ObjectWidth, player->ObjectHeight);
+			if (collisionX(*ball, *player, dX))
+			{
+				dX = -dX;
+			}
+			if (collisionY(*ball, *player, dY))
+			{
+				dY = -dY;
+			}
 
 			ball->ObjectX += dX;
 			ball->ObjectY += dY;
 
 			ball->draw(ball->ObjectX, ball->ObjectY, 10, 10);
+
+			EventHandle();
 			SDL_RenderPresent(gameRenderer);
 
 			SDL_Delay(7);
 		}
 	}
 	//Collision Defination for From soldan saðdan
-	bool Game::collisionX(Ball& ballColX, Brick brickColX, int dx) {
+	bool Game::collisionX(Ball& ballColX, GameObject& brickColX, int dx) {
 		int x1 = ballColX.ObjectX;
 		int y1 = ballColX.ObjectY;
-		int h1 = 10;
-		int w1 = 10;
+		int h1 = ballColX.ObjectHeight;
+		int w1 = ballColX.ObjectWidth;
 		int b1 = y1 + h1;
 		int r1 = x1 + w1;
 		int x2 = brickColX.ObjectX;
 		int y2 = brickColX.ObjectY;
-		int h2 = 20;
-		int w2 = 40;
+		int h2 = brickColX.ObjectHeight;
+		int w2 = brickColX.ObjectWidth;
 		int b2 = y2 + h2;
 		int r2 = x2 + w2;
 
@@ -124,20 +137,19 @@ namespace Turki {
 		return false;
 	}
 	//Collision Defination for from yukarýdan aþaðýdan
-	bool Game::collisionY(Ball& ballColY, Brick brickColY, int dy) {
+	bool Game::collisionY(Ball& ballColY, GameObject& brickColY, int dy) {
 		int x1 = ballColY.ObjectX;
 		int y1 = ballColY.ObjectY;
-		int h1 = 10;
-		int w1 = 10;
+		int h1 = ballColY.ObjectHeight;
+		int w1 = ballColY.ObjectWidth;
 		int b1 = y1 + h1;
 		int r1 = x1 + w1;
 		int x2 = brickColY.ObjectX;
 		int y2 = brickColY.ObjectY;
-		int h2 = 20;
-		int w2 = 40;
+		int h2 = brickColY.ObjectHeight;
+		int w2 = brickColY.ObjectWidth;
 		int b2 = y2 + h2;
 		int r2 = x2 + w2;
-
 
 		if ((r1 >= x2) && (x1 <= r2)) {
 			if (dy > 0) {
@@ -159,5 +171,22 @@ namespace Turki {
 	}
 	void Game::EventHandle()
 	{
+		SDL_Event event;
+		if (SDL_PollEvent(&event))
+		{
+			switch (event.type)
+			{
+			case SDL_KEYDOWN:
+				
+				   std::cout << SDL_GetKeyName(event.key.keysym.sym) << " Basýldý" << std::endl;
+				break;
+			case SDL_QUIT :
+				
+				break;
+			default:
+				break;
+			}
+		}
+
 	}
 }

@@ -15,14 +15,15 @@ namespace Turki {
 		 void renderer();
 		 void update();
 		 void EventHandle();
-		 bool collisionX(Ball& ballColX, Brick brickColX, int dx);
-		 bool collisionY(Ball& ballColY, Brick brickColY, int dy);
+		 bool collisionX(Ball& ballColX, GameObject& brickColX, int dx);
+		 bool collisionY(Ball& ballColY, GameObject& brickColY, int dy);
 	private:
 		SDL_Renderer* gameRenderer;
 		ImageManager imageMan;
 		int brickSize = 56;
 		BackGround backGround;
 		Ball* ball = new Ball;
+		Player* player = new Player;
 		Brick* brick[56];
 		
 
