@@ -5,6 +5,10 @@
 #include "GameObjects/BackGround.h"
 #include "GameObjects/Brick.h"
 #include "ImageManager/ImageManager.h"
+#include "GameObjects/Player.h"
+#include "GameObjects/Ball.h"
+#include "GameObjects/BackGround.h"
+#include "GameObjects/Heart.h"
 namespace Turki {
 	class  Game
 	{
@@ -18,6 +22,15 @@ namespace Turki {
 		 bool collisionX(Ball& ballColX, GameObject& brickColX, int dx);
 		 bool collisionY(Ball& ballColY, GameObject& brickColY, int dy);
 	private:
+		int dX;
+		int dY;
+		int max = 5;
+		int min = -5;
+		int ilkyol;
+		bool gameStart;
+		bool ballDestroyed;
+		bool gameOver;
+		int life;
 		SDL_Renderer* gameRenderer;
 		ImageManager imageMan;
 		int brickSize = 56;
@@ -25,8 +38,9 @@ namespace Turki {
 		Ball* ball = new Ball;
 		Player* player = new Player;
 		Brick* brick[56];
-		
-
+		Heart* firstHeart = new Heart;
+		Heart* secondHeart = new Heart;
+		Heart* thirdHeart = new Heart;
 	};
 
 

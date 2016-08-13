@@ -1,11 +1,3 @@
-﻿  Player.cpp
-  main.cpp
-  ImageManager.cpp
-  GameObject.cpp
-  Brick.cpp
-  Game.cpp
-  Ball.cpp
-  BackGround.cpp
-  Generating Code...
+﻿  Game.cpp
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.exe
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.pdb (Partial PDB)

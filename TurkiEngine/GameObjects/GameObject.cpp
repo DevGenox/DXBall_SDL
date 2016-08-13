@@ -18,6 +18,11 @@ namespace Turki {
 		Obj_imgMan = &imgManager;
 		Obj_imgMan->load(ObjectID, AssetPath);
 	}
+	void GameObject::unload()
+	{
+		Obj_imgMan = NULL;
+		gameRenderer = NULL;
+	}
 	void GameObject::draw(int PosX, int PosY, int img_Width, int img_Height)
 	{
 		ObjectX = PosX;

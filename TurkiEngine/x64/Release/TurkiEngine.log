@@ -1,0 +1,21 @@
+﻿Game.obj : error LNK2001: unresolved external symbol SDL_GetKeyName
+Game.obj : error LNK2001: unresolved external symbol SDL_RenderClear
+Game.obj : error LNK2001: unresolved external symbol SDL_Delay
+Game.obj : error LNK2001: unresolved external symbol SDL_GetMouseState
+Game.obj : error LNK2001: unresolved external symbol SDL_PollEvent
+Game.obj : error LNK2001: unresolved external symbol SDL_RenderPresent
+Game.obj : error LNK2001: unresolved external symbol SDL_SetRenderDrawColor
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_DestroyTexture
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_RenderCopy
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_QueryTexture
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_FreeSurface
+ImageManager.obj : error LNK2001: unresolved external symbol IMG_Load
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_CreateTextureFromSurface
+Window.obj : error LNK2001: unresolved external symbol SDL_DestroyRenderer
+Window.obj : error LNK2001: unresolved external symbol SDL_Init
+Window.obj : error LNK2001: unresolved external symbol SDL_DestroyWindow
+Window.obj : error LNK2001: unresolved external symbol SDL_Quit
+Window.obj : error LNK2001: unresolved external symbol SDL_CreateRenderer
+Window.obj : error LNK2001: unresolved external symbol SDL_CreateWindow
+LIBCMT.lib(exe_main.obj) : error LNK2001: unresolved external symbol main
+d:\project\visual studio 2015\Projects\TurkiEngine\x64\Release\TurkiEngine.exe : fatal error LNK1120: 20 unresolved externals
