@@ -6,7 +6,7 @@ namespace Turki {
 	Brick::Brick()
 	{
 		ObjectID = "Brick";
-		AssetPath = "Assets/Brick.png";
+		AssetPath = "Assets/Images/Brick.png";
 		ObjectWidth = 40;
 		ObjectHeight = 20;
 	}

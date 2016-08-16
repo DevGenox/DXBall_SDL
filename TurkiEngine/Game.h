@@ -5,6 +5,7 @@
 #include "GameObjects/BackGround.h"
 #include "GameObjects/Brick.h"
 #include "ImageManager/ImageManager.h"
+#include "Sound/SoundManager.h"
 #include "GameObjects/Player.h"
 #include "GameObjects/Ball.h"
 #include "GameObjects/BackGround.h"
@@ -16,6 +17,7 @@ namespace Turki {
 		 Game();
 		 ~Game();
 		 void load(SDL_Renderer* render);
+		 void playBackground();
 		 void renderer();
 		 void update();
 		 void EventHandle();
@@ -31,8 +33,14 @@ namespace Turki {
 		bool ballDestroyed;
 		bool gameOver;
 		int life;
+
+
+	private:
 		SDL_Renderer* gameRenderer;
 		ImageManager imageMan;
+		SoundManager soundMan;
+
+	private:
 		int brickSize = 56;
 		BackGround backGround;
 		Ball* ball = new Ball;

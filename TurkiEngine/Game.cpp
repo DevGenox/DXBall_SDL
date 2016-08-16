@@ -9,12 +9,19 @@ namespace Turki {
 	Game::~Game()
 	{
 	}
+	void Game::playBackground()
+	{
+		soundMan.load("SpaceMusic", "Assets/Sounds/Space_Music.mp3","Music");
+		soundMan.play("SpaceMusic");
+	}
 	void Game::load(SDL_Renderer* render)
 	{
 		for (int i = 0; i < brickSize; i++)
 		{
 			brick[i] = new Brick;
 		}
+
+		//Resimler
 
 		gameRenderer = render;
 		imageMan.setRenderer(gameRenderer);
@@ -29,6 +36,12 @@ namespace Turki {
 			brick[i]->load(gameRenderer, imageMan);
 		}
 
+		//Sesler
+		soundMan.load("collisionBrick", "Assets/Sounds/button-24.wav","Effect");
+		soundMan.load("collisionBorder", "Assets/Sounds/button-50.wav", "Effect");
+		soundMan.load("death", "Assets/Sounds/button-12.wav", "Effect");
+		playBackground();
+
 
 	}
 	void Game::renderer()
@@ -39,8 +52,9 @@ namespace Turki {
 		life = 3;
 		for (int i = 0;; i++)
 		{
-			int x, y;
+			int x, y; //Mouse Pozisyonunu al.
 			SDL_GetMouseState(&x, &y);
+
 			SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
 			SDL_RenderClear(gameRenderer);
 			backGround.draw(0, 0, 800, 600);
@@ -68,7 +82,15 @@ namespace Turki {
 			if (thirdHeart != NULL) { 
 				thirdHeart->draw(725, 0, firstHeart->ObjectWidth, firstHeart->ObjectHeight); 
 			}
-			player->draw(x, player->ObjectY, player->ObjectWidth, player->ObjectHeight);
+			if (x  <= 800 - player->ObjectWidth)
+			{
+				player->draw(x, player->ObjectY, player->ObjectWidth, player->ObjectHeight);
+			}
+			else
+			{
+				player->draw(800 - player->ObjectWidth, player->ObjectY, player->ObjectWidth, player->ObjectHeight);
+			}
+		
 			int id = -1;
 			for (int y = 50; y <= 200; y += 40)
 			{
@@ -101,11 +123,13 @@ namespace Turki {
 			if (gameStart)
 			{
 				if (gameOver) gameOver = false;
-				if (ball->ObjectX < 0 || ball->ObjectX > 800) {
+				if (ball->ObjectX < 0 || ball->ObjectX > 800 - ball->ObjectWidth) {
 					dX = -dX;
+					soundMan.play("collisionBorder");
 				}
 				if (ball->ObjectY < 0) {
 					dY = -dY;
+					soundMan.play("collisionBorder");
 				}
 				if (ball->ObjectY > 600)
 				{
@@ -113,7 +137,7 @@ namespace Turki {
 					if (life == 2) { firstHeart->unload(); }
 					if (life == 1) { secondHeart->unload(); }
 					if (life == 0) { thirdHeart->unload(); gameOver = true; life = 3; }
-
+					soundMan.play("death");
 					gameStart = false;
 				}
 				if (ball != NULL)
@@ -125,12 +149,14 @@ namespace Turki {
 							if (collisionX(*ball, *brick[t], dX))
 							{
 								dX = -dX;
+								soundMan.play("collisionBrick");
 								brick[t] = NULL;
 								break;
 							}
 							if (collisionY(*ball, *brick[t], dY))
 							{
 								dY = -dY;
+								soundMan.play("collisionBrick");
 								brick[t] = NULL;
 								break;
 							}
@@ -201,8 +227,14 @@ namespace Turki {
 			}
 			if (!gameStart)
 			{
-
-				ball->draw((x + (player->ObjectWidth / 2 - (ball->ObjectWidth / 2))), (player->ObjectY - 20), ball->ObjectWidth, ball->ObjectHeight);
+				if (x <= 800 - player->ObjectWidth)
+				{
+					ball->draw((x + (player->ObjectWidth / 2 - (ball->ObjectWidth / 2))), (player->ObjectY - 20), ball->ObjectWidth, ball->ObjectHeight);
+				}
+				else
+				{
+					ball->draw((player->ObjectX + (player->ObjectWidth / 2 - (ball->ObjectWidth / 2))), (player->ObjectY - 20), ball->ObjectWidth, ball->ObjectHeight);
+				}
 			}
 			else
 			{
@@ -212,7 +244,7 @@ namespace Turki {
 			EventHandle();
 			SDL_RenderPresent(gameRenderer);
 
-			SDL_Delay(6);
+			SDL_Delay(5);
 
 		}
 	}

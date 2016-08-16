@@ -6,7 +6,7 @@ namespace Turki {
 	BackGround::BackGround()
 	{
 		ObjectID = "backGround";
-		AssetPath = "Assets/backGround.png";
+		AssetPath = "Assets/Images/backGround.png";
 	}
 
 

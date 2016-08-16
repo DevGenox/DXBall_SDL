@@ -5,7 +5,7 @@ namespace Turki {
 	Heart::Heart()
 	{
 		ObjectID = "Heart";
-		AssetPath = "Assets/Heart.png";
+		AssetPath = "Assets/Images/Heart.png";
 		ObjectWidth = 25;
 		ObjectHeight = 22;
 	}

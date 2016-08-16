@@ -5,7 +5,7 @@ namespace Turki {
 	Player::Player()
 	{
 		ObjectID = "Player";
-		AssetPath = "Assets/Player.png";
+		AssetPath = "Assets/Images/Player.png";
 		ObjectWidth = 100;
 		ObjectHeight = 20;
 		ObjectX = 400 - (ObjectWidth/2);

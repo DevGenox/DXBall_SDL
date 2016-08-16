@@ -10,7 +10,7 @@ namespace Turki {
 		ObjectWidth = 12;
 		ObjectHeight = 12;
 		ObjectID = "Ball";
-		AssetPath = "Assets/Ball.png";
+		AssetPath = "Assets/Images/Ball.png";
 	}
 
 
