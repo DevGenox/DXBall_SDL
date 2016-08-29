@@ -1,3 +1,15 @@
-﻿  Game.cpp
-  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.exe
-  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.pdb (Partial PDB)
+﻿  Window.cpp
+  SoundManager.cpp
+  Player.cpp
+  main.cpp
+  ImageManager.cpp
+  Heart.cpp
+  GameObject.cpp
+  Brick.cpp
+  Game.cpp
+  Ball.cpp
+  BackGround.cpp
+  Generating Code...
+  LINK : D:\Project\Visual Studio 2015\Projects\DXBall_SDL\Debug\TurkiEngine.exe not found or not built by the last incremental link; performing full link
+  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\DXBall_SDL\Debug\TurkiEngine.exe
+  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\DXBall_SDL\Debug\TurkiEngine.pdb (Partial PDB)

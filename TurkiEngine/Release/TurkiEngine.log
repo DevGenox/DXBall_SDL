@@ -1,8 +1,18 @@
-﻿  Game.cpp
+﻿  BackGround.cpp
+  Ball.cpp
+  Game.cpp
+  Brick.cpp
+  GameObject.cpp
+  Heart.cpp
+  ImageManager.cpp
+  main.cpp
+  Player.cpp
+  SoundManager.cpp
+  Window.cpp
   Generating code
-  1 of 407 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  667 of 670 functions (99.6%) were compiled, the rest were copied from previous compilation.
+    263 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
-  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)
+  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\DXBall_SDL\Release\TurkiEngine.exe
+  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\DXBall_SDL\Release\TurkiEngine.pdb (Full PDB)
